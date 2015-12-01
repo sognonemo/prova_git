@@ -1,0 +1,432 @@
+// Importo pezzi di codice dall'esterno
+@import "base";
+@import "mixin";
+@import "rem";
+@import "variables";
+@import "general";
+
+
+// Dichiarazione layout in Susy
+
+$layout_generico:(
+gutters:20px/60px,
+);
+
+$colonne: layout(12);
+
+// Desktop
+@include layout ($colonne $layout_generico);
+
+
+/*  HOME */
+
+
+body {
+    font-family: $font-arial;
+    @include container($small);
+    color: $color_testogenerale;
+    @include show-grid(overlay);
+
+    }
+
+header {
+  div {
+    float: right;
+  }
+}
+nav {
+  background-color: $color_general;
+  ul {
+    text-align: center;
+    text-transform: uppercase;
+        @include rem (padding, 10px 0px) ;
+    @include rem (font-size, 18px) ;
+    li{
+    display: inline;
+    @include rem (padding, 0 10px) ;
+      a {
+        color:$color_white;
+      }
+
+  }
+  }
+}
+
+.messaggiohome {
+  font-family: $font-helvetica;
+    @include rem (font-size, 24px) ;
+    @include rem (line-height, 30px) ;
+      @include rem (padding, 10px 0px) ;
+  img {
+    float:left;
+
+  width: span(5);
+
+  }
+
+  div {
+    float:left;
+      @include rem (padding, 0 25px) ;
+
+      box-sizing: border-box; // mi fa mettere il padding senza andare a capo!!!
+
+  }
+  h1 {
+    font-weight: bold;
+
+
+  }
+
+  h2 {
+    font-weight: bold;
+    @include rem (padding-top, 20px) ;
+
+  }
+
+  p {
+
+  }
+
+  a {
+    color: $color_firstlink;
+    font-weight: bold;
+  }
+
+}
+
+
+.plus a {
+@include gallery(3 of 12);
+  display: inline-block;
+  margin: 10px 0;
+  height:50px;
+  line-height: 50px;
+  span {
+    position: relative;
+    bottom:25px;
+  }
+}
+
+
+//riga in mezzo
+
+.listaprodottihome h1{
+
+    text-align:center;
+    position:relative;
+    z-index:2;
+
+    &:after{
+        content:"";
+        position:absolute;
+        top:50%;
+        left:0;
+        right:0;
+        border-top:solid 1px $color_general;
+        z-index:-1;
+    }
+
+    ul li {
+      float: left;
+
+    }
+
+}
+
+.titcategoria {
+  margin:0;
+  @include rem (padding, 2px 10px) ;
+   background:$color_general;
+   display:inline-block;
+   color:$color_white;
+   @include rem (font-size, 18px) ;
+   text-transform: none;
+}
+
+
+.hproduct {
+    @include gallery(2 of 12);
+    text-align: center;
+    img{
+      @include border-radius(8px);
+      border:1px solid grey;
+      width: 100%;
+      box-sizing: border-box;
+      @include rem (padding, 20px) ;
+    }
+
+}
+
+/*  SCHEDA PRODOTTO */
+
+.thumbs {
+  width: span(2);
+    float: left;
+  a {
+    overflow:hidden;
+  }
+
+  img {
+    display:block;
+    @include border-radius(8px);
+    border:1px solid grey;
+    width: auto;
+    height: 60px;
+    box-sizing: border-box;
+    @include rem(padding,5px);
+    @include box-shadow(silver 2px 2px 2px 1px);
+    @include rem(margin,20px 0);
+  }
+
+
+
+}
+
+.focusprodotto {
+    width: span(10);
+      float: left;
+  img {
+  float: left;
+  }
+
+  h1 {
+    width: span(2);
+    float: left;
+    font-family: $font-arial;
+    font-style: italic;
+    @include rem(font-size, 45px);
+    box-sizing: border-box;
+    @include rem (padding, 80px) ;
+  }
+}
+
+.sotto {
+  div {
+
+  }
+  article {
+    float:left;
+    width: span(6);
+    padding-right:gutter()/2;
+    border-right: 1px solid red;
+    div {
+      padding-right:10px;
+      box-sizing: border-box;
+    }
+  }
+
+  aside {
+    padding:0 10px ;
+    box-sizing: border-box;
+    float:left;
+    form {
+      width: 100%;
+      background-color: blue;
+        div {
+          display: inline-block;
+        }
+
+    }
+    label {
+      display: block;
+    }
+
+  }
+}
+
+
+/***********************************************************/
+
+// DESKTOP
+
+/***********************************************************/
+
+/* Portrait Kindle Fire e Google Nexus 7 */
+@media only screen and (min-width : 500px) and (max-width : 603px)  {
+
+
+  .hproduct {
+      @include gallery(6 of 12);
+    }
+}
+
+
+/* Desktops and laptops > Aggiusto il badge */
+@media only screen  and (max-width : 499px) {
+  .messaggiohome {
+
+    img {
+    float: none;
+    width: span(full);
+    }
+
+    div {
+      width: span(full);
+
+    }
+
+  }
+
+
+
+  .hproduct {
+      @include gallery(12 of 12);
+      float:none;
+      // Float dopo....
+      margin-right:0!important;
+
+    }
+
+}
+
+/* Desktops and laptops > Aggiusto il badge */
+@media only screen  and (max-width : 900px) {
+
+
+
+}
+
+/* Desktops and laptops > Margine laterale ----------- */
+@media only screen  and (max-width : 1224px) {
+
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+/* Styles */
+}
+
+
+
+
+/***********************************************************/
+
+// TABLET
+
+/***********************************************************/
+
+
+/* Portrait Kinlde Fire e Google Nexus 7 */
+@media only screen and (min-device-width : 500px) and (max-device-width : 603px) and (orientation : portrait) {
+
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+
+
+/***********************************************************/
+
+// SMARTPHONES
+
+/***********************************************************/
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+/* iPhone 5 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* iPhone 6 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* iPhone 6+ ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* Samsung Galaxy S3 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+/* Styles */
+}
+
+/* Samsung Galaxy S4 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+/* Samsung Galaxy S5 ----------- */
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+/* Styles */
+}

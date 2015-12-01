@@ -1,0 +1,38 @@
+html {
+  @include rem-baseline;
+
+}
+
+h1 {
+}
+
+// Responsive img
+img {
+  max-width:100%;height:auto;
+}
+
+
+// Link
+a {
+  text-decoration: none;
+  color: $color_testogenerale;
+  &:active {
+    color: $color_testogenerale;
+  }
+}
+
+
+section, header, .plus {
+      @include clearfix;
+}
+
+
+// Resetta tutto il contenuto dei bottoni che può variare su altri schermi
+input, textarea, button {
+    -webkit-appearance: none; /*Safari/Chrome*/
+    -moz-appearance: none; /*Firefox*/
+    -ms-appearance: none; /*IE*/
+    -o-appearance: none; /*Opera*/
+    appearance: none;
+    -webkit-border-radius: 0;
+}
